@@ -45,7 +45,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
             if (Input.GetKeyDown(KeyCode.F))
             {
                 SceneSwitcherService sceneSwitcherService = _container.Resolve<SceneSwitcherService>();
-                ICoroutinesPerfomer coroutinesPerfomer = _container.Resolve<ICoroutinesPerfomer>();
+                ICoroutinesPerformer coroutinesPerfomer = _container.Resolve<ICoroutinesPerformer>();
                 coroutinesPerfomer.StartPerform(sceneSwitcherService.ProcessSwitchTo(Scenes.MainMenu));
             }
         }

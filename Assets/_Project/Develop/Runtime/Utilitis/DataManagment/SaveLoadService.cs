@@ -8,12 +8,12 @@ namespace Assets._Project.Develop.Runtime.Utilitis.DataManagment
     public class SaveLoadService : ISaveLoadService
     {
         private readonly IDataSerializer _serializer;
-        private readonly IDataKeyStorage _keysStorage;
+        private readonly IDataKeysStorage _keysStorage;
         private readonly IDataRepository _repository;
 
         public SaveLoadService(
             IDataSerializer serializer, 
-            IDataKeyStorage keyStorage, 
+            IDataKeysStorage keyStorage, 
             IDataRepository repository)
         {
             _serializer = serializer;

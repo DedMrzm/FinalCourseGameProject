@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace Assets._Project.Develop.Runtime.Utilitis.DataManagment.KeysStorage
 {
-    public interface IDataKeyStorage
+    public interface IDataKeysStorage
     {
         string GetKeyFor<TData>() where TData : ISaveData;
     }
 
-    public class MapDataKeyStorage : IDataKeyStorage
+    public class MapDataKeyStorage : IDataKeysStorage
     {
         private readonly Dictionary<Type, string> Keys = new Dictionary<Type, string>()
         {

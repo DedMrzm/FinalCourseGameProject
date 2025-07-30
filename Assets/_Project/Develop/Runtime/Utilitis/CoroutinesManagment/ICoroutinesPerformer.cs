@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets._Project.Develop.Runtime.Utilitis.CoroutinesManagment
 {
-    public interface ICoroutinesPerfomer
+    public interface ICoroutinesPerformer
     {
         Coroutine StartPerform(IEnumerator coroutineFunction);
 
