@@ -2,12 +2,13 @@
 using Assets._Project.Develop.Runtime.Infrastructure;
 using Assets._Project.Develop.Runtime.Infrastructure.DI;
 using Assets._Project.Develop.Runtime.Meta.Features.Wallet;
+using Assets._Project.Develop.Runtime.UI;
+using Assets._Project.Develop.Runtime.UI.CommonView;
+using Assets._Project.Develop.Runtime.UI.Wallet;
 using Assets._Project.Develop.Runtime.Utilitis.CoroutinesManagment;
-using Assets._Project.Develop.Runtime.Utilitis.DataManagment;
 using Assets._Project.Develop.Runtime.Utilitis.DataManagment.DataProviders;
 using Assets._Project.Develop.Runtime.Utilitis.SceneManagment;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets._Project.Develop.Runtime.Meta.Infrastructure
@@ -74,6 +75,7 @@ namespace Assets._Project.Develop.Runtime.Meta.Infrastructure
                 _coroutinesPerformer.StartPerform(_playerDataProvider.Save());
                 Debug.Log("Сохранение было вызвано");
             }
+
         }
     }
 }
