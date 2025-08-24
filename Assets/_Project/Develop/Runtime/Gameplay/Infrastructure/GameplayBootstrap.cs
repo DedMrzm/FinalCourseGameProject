@@ -1,4 +1,5 @@
-﻿using Assets._Project.Develop.Runtime.Infrastructure;
+﻿using Assets._Project.Develop.Runtime.Gameplay.EntitiesCore;
+using Assets._Project.Develop.Runtime.Infrastructure;
 using Assets._Project.Develop.Runtime.Infrastructure.DI;
 using Assets._Project.Develop.Runtime.Meta.Features.Wallet;
 using Assets._Project.Develop.Runtime.Utilitis.CoroutinesManagment;
@@ -16,6 +17,9 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
         private WalletService _walletService;
 
+        [SerializeField] private TestGameplay _testGameplay;
+        private EntitiesLifeContext _entitiesLifeContext;
+
         public override void ProcessRegistrations(DIContainer container, IInputSceneArgs sceneArgs = null)
         {
             _container = container;
@@ -32,9 +36,13 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
         {
             Debug.Log($"Уровень: {_inputArgs.LevelNumber}");
 
-            _walletService = _container.Resolve<WalletService>();
-
             Debug.Log("Инициализация геймплейной сцены");
+
+            _walletService = _container.Resolve<WalletService>();
+            
+            _entitiesLifeContext = _container.Resolve<EntitiesLifeContext>();
+
+            _testGameplay.Initialize(_container);
 
             yield break;
         }
@@ -43,10 +51,14 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
         public override void Run()
         {
             Debug.Log("Старт геймплейной сцены");
+
+            _testGameplay.Run();
         }
 
         private void Update()
         {
+            _entitiesLifeContext?.Update(Time.deltaTime);
+
             if (Input.GetKeyDown(KeyCode.F))
             {
                 SceneSwitcherService sceneSwitcherService = _container.Resolve<SceneSwitcherService>();
