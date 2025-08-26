@@ -1,4 +1,5 @@
 ﻿using Assets._Project.Develop.Runtime.Gameplay.EntitiesCore;
+using Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Mono;
 using Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature;
 using Assets._Project.Develop.Runtime.Infrastructure.DI;
 using System;
@@ -27,8 +28,6 @@ namespace Assets._Project.Develop.Runtime.Gameplay
 
         public void Run()
         {
-            _entity = _entitiesFactory.CreateTestEntity(Vector3.zero);;
-
             _isRunning = true;
         }
 
@@ -37,9 +36,20 @@ namespace Assets._Project.Develop.Runtime.Gameplay
             if(_isRunning == false)
                 return;
 
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                _entity = _entitiesFactory.CreateBasedOnRigidbodyEntity(Vector3.zero);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                _entity = _entitiesFactory.CreateBasedOnCharacterControllerEntity(Vector3.zero);
+            }
+
             Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 
-            _entity.MoveDirection.Value = input;
+            if(_entity != null)
+                _entity.MoveDirection.Value = input;
         }
     }
 }
