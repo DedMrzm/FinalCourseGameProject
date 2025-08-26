@@ -12,7 +12,6 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature
         private ReactiveVariable<float> _moveSpeed;
         private Rigidbody _rigidbody;
 
-
         public void OnInit(Entity entity)
         {
             _moveDirection = entity.MoveDirection;
