@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets._Project.Develop.Runtime.Gameplay.EntitiesCore;
+using UnityEngine;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Common
 {
-    public class CommonComponents
+    public class RigidbodyComponent : IEntityComponent
     {
+        public Rigidbody Value;
     }
 }

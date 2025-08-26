@@ -1,13 +1,17 @@
-﻿using Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Systems;
+﻿using Assets._Project.Develop.Runtime.Gameplay.Common;
+using Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Systems;
+using Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature;
+using Assets._Project.Develop.Runtime.Utilitis.Reactive;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.EntitiesCore
 {
-    public class Entity : IDisposable
+    public partial class Entity : IDisposable
     {
         private readonly Dictionary<Type, IEntityComponent> _components = new();
 

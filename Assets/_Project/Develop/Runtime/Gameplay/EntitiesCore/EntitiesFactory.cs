@@ -27,10 +27,10 @@ namespace Assets._Project.Develop.Runtime.Gameplay.EntitiesCore
             _monoEntitiesFactory.Create(entity, position, "Entities/TestEntity");
 
             entity
-                .AddComponent(new MoveDirection() { Value = new ReactiveVariable<Vector3>(Vector3.forward)})
-                .AddComponent(new MoveSpeed() { Value = new ReactiveVariable<float>(10)});
+                .AddMoveDirection()
+                .AddMoveSpeed(new ReactiveVariable<float>(10));
             
-            entity.AddSystem(new MovementSystem());
+            entity.AddSystem(new RigidbodyMovementSystem());
 
             _entitiesLifeContext.Add(entity);
 
